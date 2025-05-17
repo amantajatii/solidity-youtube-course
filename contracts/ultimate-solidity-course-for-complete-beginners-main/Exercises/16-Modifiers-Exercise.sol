@@ -34,7 +34,7 @@ contract PausableToken {
     }
 
     // 3️⃣ use the notPaused modifier in this function 
-    function transfer(address to, uint amount) public {
+    function transfer(address to, uint amount) public notPaused {
         require(balances[msg.sender] >= amount, "Insufficient balance");
 
         balances[msg.sender] -= amount;
